@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>UsineUtilisateur.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TestGradleEdunote</a> &gt; <a href="index.source.html" class="el_package">systeme</a> &gt; <span class="el_source">UsineUtilisateur.java</span></div><h1>UsineUtilisateur.java</h1><pre class="source lang-java linenums">package systeme;
+
+import java.io.*;
+import java.util.Scanner;
+
+import personnes.*;
+
+<span class="nc" id="L8">public class UsineUtilisateur {</span>
+	
+	public static final int ETUDIANT = 1;
+	public static final int PROFESSEUR = 2;
+	
+	public static Utilisateur newUser(int type)
+	{
+<span class="nc" id="L15">		Scanner sc = new Scanner(System.in);</span>
+		String nom, prenom;
+<span class="nc" id="L17">		Utilisateur user = null;</span>
+		
+<span class="nc" id="L19">		System.out.print (&quot;		Entrer un nom : &quot;);</span>
+<span class="nc" id="L20">		nom = sc.next();</span>
+<span class="nc" id="L21">		System.out.print (&quot;		Entrer un prenom : &quot;);</span>
+<span class="nc" id="L22">		prenom = sc.next();</span>
+
+<span class="nc bnc" id="L24" title="All 4 branches missed.">		if (type == ETUDIANT &amp;&amp; saveUser(user = new Etudiant(nom, prenom), ETUDIANT))</span>
+<span class="nc" id="L25">			System.out.println(&quot;\n		Ajout de l'etudiant reussi.&quot;);</span>
+<span class="nc bnc" id="L26" title="All 4 branches missed.">		if (type == PROFESSEUR &amp;&amp; saveUser(user = new Professeur(nom, prenom), PROFESSEUR))</span>
+<span class="nc" id="L27">			System.out.print(&quot;\n		Vous pouvez maintenant vous connecter en tant que professeur.&quot;);</span>
+		
+<span class="nc" id="L29">		return user;</span>
+	}
+	
+    public static boolean saveUser(Utilisateur user, int type) {
+
+<span class="nc" id="L34">    	ObjectOutputStream fEcriture = null;</span>
+<span class="nc" id="L35">    	File dir = null;</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">    	if (type == UsineUtilisateur.ETUDIANT)</span>
+<span class="nc" id="L37">    		 dir = new File (&quot;etudiant/&quot;);</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">    	else if (type == UsineUtilisateur.PROFESSEUR)</span>
+<span class="nc" id="L39">    		 dir = new File (&quot;professeur/&quot;);</span>
+<span class="nc" id="L40">    	dir.mkdirs();</span>
+<span class="nc" id="L41">        String fichier = dir + &quot;/&quot; + user.getNom() + user.getPrenom() + &quot;.txt&quot;;</span>
+        try
+        {
+<span class="nc" id="L44">            fEcriture = new ObjectOutputStream (new BufferedOutputStream (new FileOutputStream( new File(fichier))));</span>
+<span class="nc" id="L45">            fEcriture.writeInt(type);</span>
+<span class="nc" id="L46">            fEcriture.writeObject(user);</span>
+<span class="nc" id="L47">            fEcriture.close();</span>
+            
+<span class="nc" id="L49">            return true;</span>
+        }
+<span class="nc" id="L51">        catch (FileNotFoundException e)</span>
+        {
+<span class="nc" id="L53">            e.printStackTrace();</span>
+<span class="nc" id="L54">            return false;</span>
+        }
+<span class="nc" id="L56">        catch (IOException e)</span>
+        {
+<span class="nc" id="L58">            e.printStackTrace();</span>
+<span class="nc" id="L59">            return false;</span>
+        }
+    }
+    
+    
+    public static Utilisateur loadUser(String fichier) {
+<span class="nc" id="L65">        ObjectInputStream fLecture = null;</span>
+<span class="nc" id="L66">        Utilisateur user = null;</span>
+        int type;
+        try
+        {
+<span class="nc" id="L70">            fLecture = new ObjectInputStream (new BufferedInputStream (new FileInputStream( new File(fichier))));</span>
+
+<span class="nc" id="L72">            type = fLecture.readInt();</span>
+            	
+<span class="nc bnc" id="L74" title="All 2 branches missed.">            if (type == ETUDIANT)</span>
+<span class="nc" id="L75">                user = (Etudiant)fLecture.readObject();</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">            else if (type == PROFESSEUR)</span>
+<span class="nc" id="L77">                user = (Professeur)fLecture.readObject();</span>
+                
+<span class="nc" id="L79">            fLecture.close();</span>
+        }
+        
+<span class="nc" id="L82">        catch (FileNotFoundException e)</span>
+        {
+<span class="nc" id="L84">            e.printStackTrace();</span>
+        }
+<span class="nc" id="L86">        catch (IOException e)</span>
+        {
+<span class="nc" id="L88">            e.printStackTrace();</span>
+        }
+<span class="nc" id="L90">        catch (ClassNotFoundException e)</span>
+        {
+<span class="nc" id="L92">            e.printStackTrace();</span>
+<span class="nc" id="L93">        }</span>
+        
+<span class="nc" id="L95">        return user;</span>
+    }
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>

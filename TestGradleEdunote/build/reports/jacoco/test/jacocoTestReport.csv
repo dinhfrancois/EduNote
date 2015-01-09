@@ -1,0 +1,9 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+TestGradleEdunote,systeme,Fonctionalite,61,0,6,0,14,0,6,0,3,0
+TestGradleEdunote,systeme,Affichage,631,0,72,0,125,0,47,0,11,0
+TestGradleEdunote,systeme,UsineUtilisateur,183,0,16,0,48,0,12,0,4,0
+TestGradleEdunote,personnes,Professeur,324,19,30,0,73,6,21,2,6,2
+TestGradleEdunote,personnes,Etudiant,62,14,8,0,22,5,8,2,4,2
+TestGradleEdunote,personnes,Utilisateur,17,15,0,0,8,6,3,3,3,3
+TestGradleEdunote,composants,Note,42,15,0,0,16,6,5,3,5,3
+TestGradleEdunote,composants,Matiere,91,20,6,0,26,7,9,3,6,3

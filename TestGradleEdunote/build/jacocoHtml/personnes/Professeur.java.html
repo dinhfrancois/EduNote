@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Professeur.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TestGradleEdunote</a> &gt; <a href="index.source.html" class="el_package">personnes</a> &gt; <span class="el_source">Professeur.java</span></div><h1>Professeur.java</h1><pre class="source lang-java linenums">package personnes;
+
+import java.util.*;
+import java.util.Scanner;
+
+import composants.Matiere;
+import systeme.Affichage;
+import systeme.UsineUtilisateur;
+
+public class Professeur extends Utilisateur {
+
+<span class="pc" id="L12">	private ArrayList&lt;Etudiant&gt; tabEtudiant = new ArrayList&lt;Etudiant&gt;() ;</span>
+	
+	public Professeur(String nom, String prenom)
+	{
+<span class="fc" id="L16">		super(nom, prenom);</span>
+<span class="fc" id="L17">		this.setTabEtudiant(new ArrayList&lt;Etudiant&gt;());</span>
+<span class="fc" id="L18">	}</span>
+	
+	public Professeur(String nom, String prenom, ArrayList &lt;Etudiant&gt; tab)
+	{
+<span class="nc" id="L22">		super(nom, prenom);</span>
+<span class="nc" id="L23">		this.setTabEtudiant(tab);</span>
+<span class="nc" id="L24">	}</span>
+	
+	public int menu()
+	{
+<span class="nc" id="L28">		Scanner sc = new Scanner(System.in);</span>
+		int choix;
+<span class="nc" id="L30">		System.out.println (&quot; 			**************************************************************			&quot;);</span>
+<span class="nc" id="L31">		System.out.println (&quot; 			*		 	   MENU			             *&quot;);</span>
+<span class="nc" id="L32">		System.out.println (&quot; 			*   1 - Ajouter un etudiant                                  *			&quot;);</span>
+<span class="nc" id="L33">		System.out.println (&quot; 			*   2 - Visualiser la liste des etudiants                    *			&quot;);</span>
+<span class="nc" id="L34">		System.out.println (&quot; 			*   3 - Saisir des notes                                     *			&quot;);</span>
+<span class="nc" id="L35">		System.out.println (&quot; 			*   4 - Quitter                                              *			&quot;);</span>
+<span class="nc" id="L36">		System.out.println (&quot; 			*                                                            *			&quot;);</span>
+<span class="nc" id="L37">		System.out.println (&quot; 			**************************************************************			&quot;);</span>
+		
+		do {
+<span class="nc" id="L40">			System.out.print (&quot;		Reponse : &quot;);</span>
+<span class="nc" id="L41">			choix = sc.nextInt();</span>
+<span class="nc bnc" id="L42" title="All 8 branches missed.">		} while (choix!=1 &amp;&amp; choix!=2 &amp;&amp; choix!=3 &amp;&amp; choix!=4);</span>
+		
+<span class="nc bnc" id="L44" title="All 2 branches missed.">		if (choix == 1)</span>
+		{
+<span class="nc" id="L46">			tabEtudiant.add((Etudiant)UsineUtilisateur.newUser(UsineUtilisateur.ETUDIANT));</span>
+<span class="nc" id="L47">			UsineUtilisateur.saveUser(this, UsineUtilisateur.PROFESSEUR);</span>
+		}
+<span class="nc bnc" id="L49" title="All 2 branches missed.">		else if (choix == 2)</span>
+<span class="nc" id="L50">			Affichage.afficherResultatGroupe(this.getTabEtudiant());</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">		else if (choix == 3)</span>
+		{
+<span class="nc" id="L53">			int i = 1;</span>
+<span class="nc" id="L54">			Scanner input = new Scanner(System.in);</span>
+			int choixEtudiant;
+<span class="nc" id="L56">			System.out.println (&quot;		Choisir l'etudiant a qui la note va etre saisie : &quot;);</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">			for(Etudiant e : this.getTabEtudiant()){</span>
+<span class="nc" id="L58">				System.out.println(&quot;			Rang : &quot; + i + &quot; &quot; + e.getNom() + &quot; &quot; + e.getPrenom());</span>
+<span class="nc" id="L59">				i++;</span>
+			}
+			do {
+<span class="nc" id="L62">				System.out.print (&quot; 		Reponse : &quot;);</span>
+<span class="nc" id="L63">				choixEtudiant = input.nextInt() -1;</span>
+<span class="nc bnc" id="L64" title="All 4 branches missed.">			} while (choixEtudiant &gt; this.getTabEtudiant().size() &amp;&amp; choixEtudiant &lt; 0);</span>
+<span class="nc" id="L65">			this.saisieMatieresNotes(this.getTabEtudiant().get(choixEtudiant));</span>
+<span class="nc" id="L66">			UsineUtilisateur.saveUser(this, UsineUtilisateur.PROFESSEUR);</span>
+<span class="nc" id="L67">			UsineUtilisateur.saveUser(this.getTabEtudiant().get(choixEtudiant), UsineUtilisateur.ETUDIANT);</span>
+			
+		}
+<span class="nc" id="L70">		return choix;</span>
+	}
+	
+	public void executerMenu()
+	{
+		int choix;
+		do {
+<span class="nc" id="L77">			choix = this.menu();</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">		} while (choix!=4);</span>
+<span class="nc" id="L79">	}</span>
+	
+	public ArrayList&lt;Etudiant&gt; getTabEtudiant() {
+<span class="nc" id="L82">		return tabEtudiant;</span>
+	}
+
+	public void setTabEtudiant(ArrayList&lt;Etudiant&gt; tabEtudiant) {
+<span class="fc" id="L86">		this.tabEtudiant = tabEtudiant;</span>
+<span class="fc" id="L87">	}</span>
+	
+	public void saisieMatieresNotes(Etudiant e){
+<span class="nc" id="L90">		boolean boucle = true;</span>
+<span class="nc" id="L91">		Scanner input = new Scanner(System.in);</span>
+<span class="nc" id="L92">		int i = 0;</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		while(boucle){</span>
+<span class="nc" id="L94">			System.out.print(&quot; 		Entrez matiere : &quot;);</span>
+<span class="nc" id="L95">			String s = input.nextLine();</span>
+<span class="nc" id="L96">			System.out.print(&quot; 		Entrez coefficient de cette matiere : &quot;);</span>
+<span class="nc" id="L97">			float coef = input.nextFloat();</span>
+<span class="nc" id="L98">			Matiere matiere = new Matiere(s,coef);</span>
+			
+<span class="nc" id="L100">			matiere.init();</span>
+			
+<span class="nc" id="L102">			System.out.println(&quot; 		Voulez-vous arreter de saisir des matiere ? Si oui taper 1 &quot;);</span>
+			
+<span class="nc" id="L104">			int reponse = input.nextInt();</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">			if(reponse == 1){</span>
+<span class="nc" id="L106">				boucle = false;</span>
+			}
+<span class="nc" id="L108">			e.getTabMatiere().add(matiere);</span>
+<span class="nc" id="L109">			i++;</span>
+<span class="nc" id="L110">			s = null;</span>
+<span class="nc" id="L111">			input.nextLine();</span>
+<span class="nc" id="L112">		}	</span>
+<span class="nc" id="L113">	}</span>
+	
+	public void retirerEleve(){
+<span class="nc" id="L116">		int i = 1;</span>
+<span class="nc" id="L117">		Scanner input = new Scanner(System.in);</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">		for(Etudiant e : this.getTabEtudiant()){</span>
+<span class="nc" id="L119">			System.out.println(&quot; 		Rang : &quot; + i + &quot; &quot; + e.getNom() + &quot; &quot; + e.getPrenom());</span>
+<span class="nc" id="L120">			i++;</span>
+		}
+		
+<span class="nc" id="L123">		System.out.println(&quot; 		Veuillez entrez le rang de l'etudiant a retirer de la liste : &quot;);</span>
+<span class="nc" id="L124">		int reponse = 1 -  input.nextInt();</span>
+<span class="nc" id="L125">		this.getTabEtudiant().remove(reponse);</span>
+<span class="nc" id="L126">		this.getTabEtudiant().trimToSize();</span>
+<span class="nc" id="L127">		System.out.println(&quot; 		Nouvelle liste etudiants&quot;);</span>
+<span class="nc" id="L128">		i = 1;</span>
+		
+<span class="nc bnc" id="L130" title="All 2 branches missed.">		for(Etudiant e : this.getTabEtudiant()){</span>
+<span class="nc" id="L131">			System.out.println(&quot; 		Rang : &quot; + i + &quot; &quot; + e.getNom() + &quot; &quot; + e.getPrenom());</span>
+<span class="nc" id="L132">			i++;</span>
+		}
+<span class="nc" id="L134">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>

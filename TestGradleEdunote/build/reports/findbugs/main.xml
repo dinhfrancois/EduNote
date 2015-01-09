@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="2.0.3" sequence="0" timestamp="1420818819029" analysisTimestamp="1420818819066" release="">
+  <Project projectName="">
+    <Jar>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/build/classes/main/personnes/Utilisateur.class</Jar>
+    <Jar>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/build/classes/main/personnes/Etudiant.class</Jar>
+    <Jar>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/build/classes/main/personnes/Professeur.class</Jar>
+    <Jar>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/build/classes/main/systeme/Affichage.class</Jar>
+    <Jar>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/build/classes/main/systeme/Fonctionalite.class</Jar>
+    <Jar>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/build/classes/main/systeme/UsineUtilisateur.class</Jar>
+    <Jar>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/build/classes/main/composants/Matiere.class</Jar>
+    <Jar>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/build/classes/main/composants/Note.class</Jar>
+    <AuxClasspathEntry>/home/usager/11300787/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2/f951934aa5ae5a88d7e6dfaa6d32307d834a88be/commons-collections-3.2.jar</AuxClasspathEntry>
+    <SrcDir>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/src/main/java/personnes/Utilisateur.java</SrcDir>
+    <SrcDir>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/src/main/java/personnes/Etudiant.java</SrcDir>
+    <SrcDir>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/src/main/java/personnes/Professeur.java</SrcDir>
+    <SrcDir>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/src/main/java/systeme/Affichage.java</SrcDir>
+    <SrcDir>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/src/main/java/systeme/UsineUtilisateur.java</SrcDir>
+    <SrcDir>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/src/main/java/systeme/Fonctionalite.java</SrcDir>
+    <SrcDir>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/src/main/java/composants/Note.java</SrcDir>
+    <SrcDir>/home/usager/11300787/S3/github/EduNote/TestGradleEdunote/src/main/java/composants/Matiere.java</SrcDir>
+  </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="composants.Matiere">
+      <SourceLine classname="composants.Matiere" start="15" end="69" sourcefile="Matiere.java" sourcepath="composants/Matiere.java"/>
+    </Class>
+    <Method classname="composants.Matiere" name="init" signature="()V" isStatic="false">
+      <SourceLine classname="composants.Matiere" start="22" end="37" startBytecode="0" endBytecode="206" sourcefile="Matiere.java" sourcepath="composants/Matiere.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="607" end="608" startBytecode="0" endBytecode="71" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+    </Method>
+    <SourceLine classname="composants.Matiere" start="23" end="23" startBytecode="9" endBytecode="9" sourcefile="Matiere.java" sourcepath="composants/Matiere.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="composants.Note">
+      <SourceLine classname="composants.Note" start="12" end="48" sourcefile="Note.java" sourcepath="composants/Note.java"/>
+    </Class>
+    <Method classname="composants.Note" name="init" signature="()V" isStatic="false">
+      <SourceLine classname="composants.Note" start="18" end="25" startBytecode="0" endBytecode="115" sourcefile="Note.java" sourcepath="composants/Note.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="607" end="608" startBytecode="0" endBytecode="71" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+    </Method>
+    <SourceLine classname="composants.Note" start="18" end="18" startBytecode="7" endBytecode="7" sourcefile="Note.java" sourcepath="composants/Note.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="personnes.Etudiant">
+      <SourceLine classname="personnes.Etudiant" start="16" end="63" sourcefile="Etudiant.java" sourcepath="personnes/Etudiant.java"/>
+    </Class>
+    <Method classname="personnes.Etudiant" name="menu" signature="()I" isStatic="false">
+      <SourceLine classname="personnes.Etudiant" start="22" end="38" startBytecode="0" endBytecode="221" sourcefile="Etudiant.java" sourcepath="personnes/Etudiant.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="607" end="608" startBytecode="0" endBytecode="71" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+    </Method>
+    <SourceLine classname="personnes.Etudiant" start="22" end="22" startBytecode="7" endBytecode="7" sourcefile="Etudiant.java" sourcepath="personnes/Etudiant.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="personnes.Professeur">
+      <SourceLine classname="personnes.Professeur" start="12" end="134" sourcefile="Professeur.java" sourcepath="personnes/Professeur.java"/>
+    </Class>
+    <Method classname="personnes.Professeur" name="menu" signature="()I" isStatic="false">
+      <SourceLine classname="personnes.Professeur" start="28" end="70" startBytecode="0" endBytecode="625" sourcefile="Professeur.java" sourcepath="personnes/Professeur.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="607" end="608" startBytecode="0" endBytecode="71" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+    </Method>
+    <SourceLine classname="personnes.Professeur" start="28" end="28" startBytecode="7" endBytecode="7" sourcefile="Professeur.java" sourcepath="personnes/Professeur.java"/>
+    <SourceLine classname="personnes.Professeur" start="54" end="54" startBytecode="166" endBytecode="166" sourcefile="Professeur.java" sourcepath="personnes/Professeur.java" role="SOURCE_LINE_ANOTHER_INSTANCE"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="personnes.Professeur">
+      <SourceLine classname="personnes.Professeur" start="12" end="134" sourcefile="Professeur.java" sourcepath="personnes/Professeur.java"/>
+    </Class>
+    <Method classname="personnes.Professeur" name="retirerEleve" signature="()V" isStatic="false">
+      <SourceLine classname="personnes.Professeur" start="116" end="134" startBytecode="0" endBytecode="426" sourcefile="Professeur.java" sourcepath="personnes/Professeur.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="607" end="608" startBytecode="0" endBytecode="71" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+    </Method>
+    <SourceLine classname="personnes.Professeur" start="117" end="117" startBytecode="9" endBytecode="9" sourcefile="Professeur.java" sourcepath="personnes/Professeur.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="personnes.Professeur">
+      <SourceLine classname="personnes.Professeur" start="12" end="134" sourcefile="Professeur.java" sourcepath="personnes/Professeur.java"/>
+    </Class>
+    <Method classname="personnes.Professeur" name="saisieMatieresNotes" signature="(Lpersonnes/Etudiant;)V" isStatic="false">
+      <SourceLine classname="personnes.Professeur" start="90" end="113" startBytecode="0" endBytecode="370" sourcefile="Professeur.java" sourcepath="personnes/Professeur.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="607" end="608" startBytecode="0" endBytecode="71" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+    </Method>
+    <SourceLine classname="personnes.Professeur" start="91" end="91" startBytecode="9" endBytecode="9" sourcefile="Professeur.java" sourcepath="personnes/Professeur.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="systeme.Affichage">
+      <SourceLine classname="systeme.Affichage" start="11" end="221" sourcefile="Affichage.java" sourcepath="systeme/Affichage.java"/>
+    </Class>
+    <Method classname="systeme.Affichage" name="choixNouveau" signature="()I" isStatic="true">
+      <SourceLine classname="systeme.Affichage" start="102" end="117" startBytecode="0" endBytecode="196" sourcefile="Affichage.java" sourcepath="systeme/Affichage.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="607" end="608" startBytecode="0" endBytecode="71" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+    </Method>
+    <SourceLine classname="systeme.Affichage" start="102" end="102" startBytecode="7" endBytecode="7" sourcefile="Affichage.java" sourcepath="systeme/Affichage.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="systeme.Affichage">
+      <SourceLine classname="systeme.Affichage" start="11" end="221" sourcefile="Affichage.java" sourcepath="systeme/Affichage.java"/>
+    </Class>
+    <Method classname="systeme.Affichage" name="choixUtilisateur" signature="(I)Lpersonnes/Utilisateur;" isStatic="true">
+      <SourceLine classname="systeme.Affichage" start="55" end="96" startBytecode="0" endBytecode="556" sourcefile="Affichage.java" sourcepath="systeme/Affichage.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="607" end="608" startBytecode="0" endBytecode="71" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+    </Method>
+    <SourceLine classname="systeme.Affichage" start="57" end="57" startBytecode="12" endBytecode="12" sourcefile="Affichage.java" sourcepath="systeme/Affichage.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="systeme.Affichage">
+      <SourceLine classname="systeme.Affichage" start="11" end="221" sourcefile="Affichage.java" sourcepath="systeme/Affichage.java"/>
+    </Class>
+    <Method classname="systeme.Affichage" name="connexionProfesseur" signature="()V" isStatic="true">
+      <SourceLine classname="systeme.Affichage" start="41" end="51" startBytecode="0" endBytecode="151" sourcefile="Affichage.java" sourcepath="systeme/Affichage.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="607" end="608" startBytecode="0" endBytecode="71" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+    </Method>
+    <SourceLine classname="systeme.Affichage" start="41" end="41" startBytecode="7" endBytecode="7" sourcefile="Affichage.java" sourcepath="systeme/Affichage.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="systeme.Affichage">
+      <SourceLine classname="systeme.Affichage" start="11" end="221" sourcefile="Affichage.java" sourcepath="systeme/Affichage.java"/>
+    </Class>
+    <Method classname="systeme.Affichage" name="demanderUtilisateur" signature="()I" isStatic="true">
+      <SourceLine classname="systeme.Affichage" start="24" end="36" startBytecode="0" endBytecode="172" sourcefile="Affichage.java" sourcepath="systeme/Affichage.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="607" end="608" startBytecode="0" endBytecode="71" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+    </Method>
+    <SourceLine classname="systeme.Affichage" start="24" end="24" startBytecode="7" endBytecode="7" sourcefile="Affichage.java" sourcepath="systeme/Affichage.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="systeme.UsineUtilisateur">
+      <SourceLine classname="systeme.UsineUtilisateur" start="8" end="95" sourcefile="UsineUtilisateur.java" sourcepath="systeme/UsineUtilisateur.java"/>
+    </Class>
+    <Method classname="systeme.UsineUtilisateur" name="newUser" signature="(I)Lpersonnes/Utilisateur;" isStatic="true">
+      <SourceLine classname="systeme.UsineUtilisateur" start="15" end="29" startBytecode="0" endBytecode="257" sourcefile="UsineUtilisateur.java" sourcepath="systeme/UsineUtilisateur.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="607" end="608" startBytecode="0" endBytecode="71" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+    </Method>
+    <SourceLine classname="systeme.UsineUtilisateur" start="15" end="15" startBytecode="7" endBytecode="7" sourcefile="UsineUtilisateur.java" sourcepath="systeme/UsineUtilisateur.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Fri, 9 Jan 2015 16:53:39 +0100" total_classes="8" referenced_classes="35" total_bugs="11" total_size="438" num_packages="3" vm_version="23.25-b01" cpu_seconds="10.50" clock_seconds="5.61" peak_mbytes="94.13" alloc_mbytes="455.12" gc_seconds="0.07" priority_1="11">
+    <PackageStats package="composants" total_bugs="2" total_types="2" total_size="79" priority_1="2">
+      <ClassStats class="composants.Matiere" sourceFile="Matiere.java" interface="false" size="46" bugs="1" priority_1="1"/>
+      <ClassStats class="composants.Note" sourceFile="Note.java" interface="false" size="33" bugs="1" priority_1="1"/>
+    </PackageStats>
+    <PackageStats package="personnes" total_bugs="4" total_types="3" total_size="149" priority_1="4">
+      <ClassStats class="personnes.Etudiant" sourceFile="Etudiant.java" interface="false" size="35" bugs="1" priority_1="1"/>
+      <ClassStats class="personnes.Professeur" sourceFile="Professeur.java" interface="false" size="89" bugs="3" priority_1="3"/>
+      <ClassStats class="personnes.Utilisateur" sourceFile="Utilisateur.java" interface="false" size="25" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="systeme" total_bugs="5" total_types="3" total_size="210" priority_1="5">
+      <ClassStats class="systeme.Affichage" sourceFile="Affichage.java" interface="false" size="137" bugs="4" priority_1="4"/>
+      <ClassStats class="systeme.Fonctionalite" sourceFile="Fonctionalite.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="systeme.UsineUtilisateur" sourceFile="UsineUtilisateur.java" interface="false" size="55" bugs="1" priority_1="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="545" invocations="35" avgMicrosecondsPerInvocation="15581" maxMicrosecondsPerInvocation="101307" standardDeviationMircosecondsPerInvocation="25498"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="512" invocations="404" avgMicrosecondsPerInvocation="1269" maxMicrosecondsPerInvocation="21394" standardDeviationMircosecondsPerInvocation="3043"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="377" invocations="159" avgMicrosecondsPerInvocation="2374" maxMicrosecondsPerInvocation="37029" standardDeviationMircosecondsPerInvocation="4647"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.StreamResourceTracker" totalMilliseconds="314" invocations="95" avgMicrosecondsPerInvocation="3305" maxMicrosecondsPerInvocation="21929" standardDeviationMircosecondsPerInvocation="3600"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="186" invocations="55" avgMicrosecondsPerInvocation="3389" maxMicrosecondsPerInvocation="26190" standardDeviationMircosecondsPerInvocation="5688"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="145" invocations="55" avgMicrosecondsPerInvocation="2641" maxMicrosecondsPerInvocation="16306" standardDeviationMircosecondsPerInvocation="4419"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="140" invocations="55" avgMicrosecondsPerInvocation="2550" maxMicrosecondsPerInvocation="14226" standardDeviationMircosecondsPerInvocation="3568"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="130" invocations="357" avgMicrosecondsPerInvocation="364" maxMicrosecondsPerInvocation="10995" standardDeviationMircosecondsPerInvocation="1202"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="128" invocations="57" avgMicrosecondsPerInvocation="2259" maxMicrosecondsPerInvocation="101495" standardDeviationMircosecondsPerInvocation="13367"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="121" invocations="22" avgMicrosecondsPerInvocation="5536" maxMicrosecondsPerInvocation="24710" standardDeviationMircosecondsPerInvocation="6596"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="113" invocations="53" avgMicrosecondsPerInvocation="2140" maxMicrosecondsPerInvocation="16664" standardDeviationMircosecondsPerInvocation="4150"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="103" invocations="35" avgMicrosecondsPerInvocation="2961" maxMicrosecondsPerInvocation="17617" standardDeviationMircosecondsPerInvocation="4996"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="93" invocations="35" avgMicrosecondsPerInvocation="2677" maxMicrosecondsPerInvocation="46829" standardDeviationMircosecondsPerInvocation="9162"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="92" invocations="35" avgMicrosecondsPerInvocation="2641" maxMicrosecondsPerInvocation="18744" standardDeviationMircosecondsPerInvocation="3969"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="89" invocations="35" avgMicrosecondsPerInvocation="2568" maxMicrosecondsPerInvocation="13227" standardDeviationMircosecondsPerInvocation="3763"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="87" invocations="8" avgMicrosecondsPerInvocation="10905" maxMicrosecondsPerInvocation="24696" standardDeviationMircosecondsPerInvocation="10547"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.obl.ObligationAnalysis" totalMilliseconds="84" invocations="46" avgMicrosecondsPerInvocation="1835" maxMicrosecondsPerInvocation="11887" standardDeviationMircosecondsPerInvocation="2782"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="75" invocations="55" avgMicrosecondsPerInvocation="1370" maxMicrosecondsPerInvocation="13607" standardDeviationMircosecondsPerInvocation="2517"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="72" invocations="37" avgMicrosecondsPerInvocation="1972" maxMicrosecondsPerInvocation="14752" standardDeviationMircosecondsPerInvocation="2901"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="72" invocations="35" avgMicrosecondsPerInvocation="2077" maxMicrosecondsPerInvocation="14355" standardDeviationMircosecondsPerInvocation="3581"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

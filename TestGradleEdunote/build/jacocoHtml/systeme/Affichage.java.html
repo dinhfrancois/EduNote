@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Affichage.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TestGradleEdunote</a> &gt; <a href="index.source.html" class="el_package">systeme</a> &gt; <span class="el_source">Affichage.java</span></div><h1>Affichage.java</h1><pre class="source lang-java linenums">package systeme;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import personnes.*;
+import composants.Matiere;
+
+<span class="nc" id="L11">public class Affichage {</span>
+
+	public static void afficherEntete()
+	{
+<span class="nc" id="L15">		System.out.println (&quot; 			**************************************************************			&quot;);</span>
+<span class="nc" id="L16">		System.out.println (&quot; 			*		 	 EDUNOTE			     *&quot;);</span>
+<span class="nc" id="L17">		System.out.println (&quot; 			* Application de saisie de notes et de simulation de moyenne *			&quot;);</span>
+<span class="nc" id="L18">		System.out.println (&quot; 			*                                         Version beta       *			&quot;);</span>
+<span class="nc" id="L19">		System.out.println (&quot; 			**************************************************************			&quot;);</span>
+<span class="nc" id="L20">	}</span>
+	
+	public static int demanderUtilisateur()
+	{
+<span class="nc" id="L24">		Scanner sc = new Scanner(System.in);</span>
+		int choix;
+<span class="nc" id="L26">		System.out.println (&quot;\n\n		Connexion en tant que : &quot;);</span>
+<span class="nc" id="L27">		System.out.println (&quot; 			1 - Etudiant     2 - Professeur&quot;);</span>
+		
+		do {
+<span class="nc" id="L30">			System.out.print (&quot;		Reponse : &quot;);</span>
+<span class="nc" id="L31">			choix = sc.nextInt();</span>
+<span class="nc bnc" id="L32" title="All 4 branches missed.">			if (choix !=1 &amp;&amp; choix !=2)</span>
+<span class="nc" id="L33">				System.out.println(&quot;		Choix inexistant, reconsidere ton choix.&quot;);</span>
+<span class="nc bnc" id="L34" title="All 4 branches missed.">		} while (choix !=1 &amp;&amp; choix !=2);</span>
+		
+<span class="nc" id="L36">		return choix;</span>
+	}
+	
+	public static void connexionProfesseur()
+	{
+<span class="nc" id="L41">		Scanner sc = new Scanner(System.in);</span>
+		int choix; 
+<span class="nc" id="L43">		System.out.println (&quot;\n		1 - Professeur existant 	2 - Nouveau professeur&quot;);</span>
+		do {
+<span class="nc" id="L45">			System.out.print (&quot;		Reponse : &quot;);</span>
+<span class="nc" id="L46">			choix = sc.nextInt();</span>
+<span class="nc bnc" id="L47" title="All 4 branches missed.">		} while (choix!=1 &amp;&amp; choix!=2);</span>
+		
+<span class="nc bnc" id="L49" title="All 2 branches missed.">		if (choix==2)</span>
+<span class="nc" id="L50">			UsineUtilisateur.newUser(UsineUtilisateur.PROFESSEUR);</span>
+<span class="nc" id="L51">	}</span>
+	
+	public static Utilisateur choixUtilisateur(int choix) throws FileNotFoundException
+	{
+<span class="nc" id="L55">		String nom, prenom, fichier = null;</span>
+<span class="nc" id="L56">		boolean ok = false;</span>
+<span class="nc" id="L57">		Scanner sc = new Scanner(System.in);</span>
+<span class="nc" id="L58">		Utilisateur user = null;</span>
+		
+<span class="nc bnc" id="L60" title="All 2 branches missed.">		if (choix == UsineUtilisateur.ETUDIANT) {</span>
+<span class="nc" id="L61">			System.out.println (&quot;\n\n		Connexion en tant que etudiant... &quot;);</span>
+		}
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		else if (choix == UsineUtilisateur.PROFESSEUR) {</span>
+<span class="nc" id="L64">			Affichage.connexionProfesseur();</span>
+<span class="nc" id="L65">			System.out.println (&quot;\n\n		Connexion en tant que professeur... &quot;);</span>
+		}
+		
+		do {
+<span class="nc" id="L69">			System.out.print (&quot;		Saisir votre nom : &quot;);</span>
+<span class="nc" id="L70">			nom = sc.next();</span>
+<span class="nc" id="L71">			System.out.print (&quot; 		Saisir votre prenom : &quot;);</span>
+<span class="nc" id="L72">			prenom = sc.next();</span>
+			
+<span class="nc bnc" id="L74" title="All 2 branches missed.">			if (choix == UsineUtilisateur.ETUDIANT)</span>
+<span class="nc" id="L75">				fichier = &quot;etudiant/&quot;+ nom+prenom+&quot;.txt&quot;;</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">			else if (choix == UsineUtilisateur.PROFESSEUR)</span>
+<span class="nc" id="L77">				fichier = &quot;professeur/&quot;+ nom+prenom+&quot;.txt&quot;;</span>
+			
+<span class="nc" id="L79">			File f = new File(fichier);</span>
+			
+<span class="nc bnc" id="L81" title="All 4 branches missed.">			if(f.exists() &amp;&amp; !f.isDirectory())</span>
+			{
+<span class="nc" id="L83">					System.out.println (&quot;\n		Vous etes connecte ...\n&quot;);</span>
+<span class="nc" id="L84">					ok = true;</span>
+			}
+			
+<span class="nc bnc" id="L87" title="All 2 branches missed.">		} while (!ok);</span>
+		
+<span class="nc bnc" id="L89" title="All 2 branches missed.">		if (ok)</span>
+		{
+<span class="nc bnc" id="L91" title="All 2 branches missed.">			if (choix == UsineUtilisateur.ETUDIANT)</span>
+<span class="nc" id="L92">				user = UsineUtilisateur.loadUser(&quot;etudiant/&quot; + nom + prenom + &quot;.txt&quot;);</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">			else if (choix == UsineUtilisateur.PROFESSEUR)</span>
+<span class="nc" id="L94">				user = UsineUtilisateur.loadUser(&quot;professeur/&quot; + nom + prenom + &quot;.txt&quot;);</span>
+		}
+<span class="nc" id="L96">		return user;</span>
+	}
+	
+	
+	public static int choixNouveau()
+	{
+<span class="nc" id="L102">		Scanner sc = new Scanner(System.in);</span>
+		int choix;
+		
+<span class="nc" id="L105">		System.out.println (&quot;\n\n 			**************************************************************			&quot;);</span>
+<span class="nc" id="L106">		System.out.println (&quot;			*       Bienvenue dans le monde d'EduNote ! Qui-es tu ?      *&quot;);</span>
+<span class="nc" id="L107">		System.out.println (&quot;			*                1 - Etudiant     2 - Professeur             *&quot;);</span>
+<span class="nc" id="L108">		System.out.println (&quot; 			**************************************************************			&quot;);</span>
+		
+		do {
+<span class="nc" id="L111">			System.out.print (&quot;		Reponse : &quot;);</span>
+<span class="nc" id="L112">			choix = sc.nextInt();</span>
+<span class="nc bnc" id="L113" title="All 4 branches missed.">			if (choix !=1 &amp;&amp; choix !=2)</span>
+<span class="nc" id="L114">				System.out.println(&quot;		Choix inexistant, reconsidere ton choix.&quot;);</span>
+<span class="nc bnc" id="L115" title="All 4 branches missed.">		} while (choix !=1 &amp;&amp; choix !=2);</span>
+		
+<span class="nc" id="L117">		return choix;</span>
+	}
+	
+	public static void afficherMatieres(ArrayList&lt;Matiere&gt; tabMatieres)
+	{
+<span class="nc" id="L122">		System.out.print(&quot;\n		   |Eleve                |&quot;);</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">		for (Matiere m: tabMatieres) {</span>
+			String str;
+<span class="nc bnc" id="L125" title="All 2 branches missed.">			if (m.getNom().length() &lt; 15)</span>
+			{
+<span class="nc" id="L127">				str = m.getNom();</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">				for (int i=15-str.length(); i&gt;0; i--)</span>
+<span class="nc" id="L129">					str += &quot; &quot;;</span>
+			}
+			else
+<span class="nc" id="L132">				str = m.getNom().substring(0, 15);</span>
+<span class="nc" id="L133">			System.out.print(str + &quot;|&quot;);</span>
+<span class="nc" id="L134">		}</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">		if (tabMatieres.isEmpty())</span>
+<span class="nc" id="L136">			System.out.println(&quot;Aucun         |&quot;);</span>
+		else
+<span class="nc" id="L138">			System.out.println(&quot;Moyenne        |&quot;);</span>
+<span class="nc" id="L139">	}</span>
+	
+	public static void afficherEleve(Etudiant user)
+	{
+<span class="nc" id="L143">		String str = &quot;		   |&quot; + user.getNom() + &quot; &quot; + user.getPrenom();</span>
+<span class="nc" id="L144">		System.out.print(str);</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">		for (int i=25-str.length(); i&gt;=0; i--)</span>
+<span class="nc" id="L146">			System.out.print(&quot; &quot;);</span>
+<span class="nc" id="L147">		System.out.print(&quot; |&quot;);</span>
+<span class="nc bnc" id="L148" title="All 2 branches missed.">		for (Matiere m: user.getTabMatiere()) {</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">			if(m.getMoyenne() &lt; 10){</span>
+<span class="nc" id="L150">				System.out.print(&quot;            &quot; + m.getMoyenne() + &quot;|&quot;);</span>
+			}
+			
+			else{
+<span class="nc" id="L154">				System.out.print(&quot;           &quot; + m.getMoyenne() + &quot;|&quot;);</span>
+			}
+			
+		}
+<span class="nc" id="L158">		System.out.println(&quot;           &quot; + Fonctionalite.calculResultatEleve(user.getTabMatiere()) + &quot;|&quot;);</span>
+<span class="nc" id="L159">	}</span>
+	
+	public static void afficherResultatEleve(Etudiant user)
+	{
+<span class="nc" id="L163">		System.out.println();</span>
+<span class="nc" id="L164">		Affichage.afficherMatieres(user.getTabMatiere());</span>
+<span class="nc" id="L165">		Affichage.afficherEleve(user);</span>
+<span class="nc" id="L166">		System.out.println();</span>
+<span class="nc" id="L167">	}</span>
+	
+	public static void afficherResultatGroupe(ArrayList&lt;Etudiant&gt; tabEtudiant)
+	{
+<span class="nc bnc" id="L171" title="All 2 branches missed.">		if (!tabEtudiant.isEmpty()) {</span>
+<span class="nc" id="L172">			System.out.println();</span>
+<span class="nc" id="L173">			Affichage.afficherMatieres(tabEtudiant.get(0).getTabMatiere());</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">			for (Etudiant e: tabEtudiant)</span>
+<span class="nc" id="L175">				afficherEleve(e);</span>
+<span class="nc" id="L176">			Affichage.afficherFooter(tabEtudiant);</span>
+<span class="nc" id="L177">			System.out.println();</span>
+		}
+		else
+<span class="nc" id="L180">			System.out.println(&quot;		Aucun etudiant est entre vos mains.\n&quot;);</span>
+<span class="nc" id="L181">	}</span>
+	
+	public static void afficherFooter(ArrayList&lt;Etudiant&gt; tabEtudiant)
+	{
+<span class="nc" id="L185">		final int TAILLE = tabEtudiant.get(0).getTabMatiere().size();</span>
+<span class="nc" id="L186">		float[] tabRes = new float[TAILLE];</span>
+<span class="nc" id="L187">		float[] tabCoef = new float[TAILLE];</span>
+<span class="nc" id="L188">		float sommeCoef = 0;</span>
+<span class="nc" id="L189">		float resFinal =0;</span>
+		
+		
+<span class="nc" id="L192">		System.out.print(&quot;		   |             Moyenne |&quot;);</span>
+		
+<span class="nc bnc" id="L194" title="All 2 branches missed.">		for (int i=0; i&lt;TAILLE; i++)</span>
+		{
+<span class="nc" id="L196">			tabCoef[i] = tabEtudiant.get(0).getTabMatiere().get(i).getCoefficient();</span>
+<span class="nc" id="L197">			sommeCoef += tabCoef[i];</span>
+		}
+		
+<span class="nc bnc" id="L200" title="All 2 branches missed.">		for (Etudiant e: tabEtudiant)</span>
+		{
+<span class="nc bnc" id="L202" title="All 2 branches missed.">			for (int i=0; i&lt;TAILLE; i++)</span>
+<span class="nc" id="L203">				tabRes[i] += e.getTabMatiere().get(i).getMoyenne();</span>
+		}
+		
+<span class="nc bnc" id="L206" title="All 2 branches missed.">		for (int i=0; i&lt;TAILLE; i++)</span>
+		{
+<span class="nc" id="L208">			tabRes[i] = (float)((int)(tabRes[i]*10))/10;</span>
+<span class="nc" id="L209">			resFinal += tabRes[i]*tabCoef[i];</span>
+<span class="nc bnc" id="L210" title="All 2 branches missed.">			if (tabRes[i]&lt;10)</span>
+<span class="nc" id="L211">				System.out.print(&quot;            &quot; + tabRes[i] + &quot;|&quot;);</span>
+			else
+<span class="nc" id="L213">				System.out.print(&quot;           &quot; + tabRes[i] + &quot;|&quot;);</span>
+		}
+<span class="nc" id="L215">		resFinal /= sommeCoef;</span>
+<span class="nc" id="L216">		resFinal = (float)((int)(resFinal*10))/10;</span>
+<span class="nc bnc" id="L217" title="All 2 branches missed.">		if (resFinal&lt;10)</span>
+<span class="nc" id="L218">			System.out.print(&quot;            &quot; + resFinal + &quot;|&quot;);</span>
+		else
+<span class="nc" id="L220">			System.out.print(&quot;           &quot; + resFinal + &quot;|&quot;);</span>
+<span class="nc" id="L221">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>
